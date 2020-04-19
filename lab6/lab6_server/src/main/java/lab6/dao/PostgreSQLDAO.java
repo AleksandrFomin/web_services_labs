@@ -1,7 +1,7 @@
-package lab4.dao;
+package lab6.dao;
 
-import lab4.model.Person;
-import lab4.utils.ConnectionUtils;
+import lab6.model.Person;
+import lab6.utils.ConnectionUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static lab4.utils.SQLDAOUtils.getQuoted;
-import static lab4.utils.SQLDAOUtils.resultSetToPersonList;
+import static lab6.utils.SQLDAOUtils.getQuoted;
+import static lab6.utils.SQLDAOUtils.resultSetToPersonList;
 
 public class PostgreSQLDAO {
 
@@ -31,7 +31,7 @@ public class PostgreSQLDAO {
         return persons;
     }
 
-    public List<Person> getPersons(String name, String surname, Integer age, String sex, String city) {
+    public List<Person> getPersons(String name, String surname, Long age, String sex, String city) {
         List<Person> persons = new ArrayList<>();
         try (Connection connection = ConnectionUtils.getConnection()){
             Statement stmt = connection.createStatement();
@@ -50,7 +50,7 @@ public class PostgreSQLDAO {
         return persons;
     }
 
-    public long addPerson(String name, String surname, Integer age, String sex, String city) {
+    public long addPerson(String name, String surname, Long age, String sex, String city) {
         long id = 0;
         try (Connection connection = ConnectionUtils.getConnection()){
             Statement stmt = connection.createStatement();
@@ -69,8 +69,8 @@ public class PostgreSQLDAO {
         return id;
     }
 
-    public int updatePerson(Long id, String name, String surname, Integer age, String sex, String city) {
-        int status = 500;
+    public long updatePerson(Long id, String name, String surname, Long age, String sex, String city) {
+        long status = 500;
         try (Connection connection = ConnectionUtils.getConnection()){
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(
@@ -90,7 +90,7 @@ public class PostgreSQLDAO {
         return status;
     }
 
-    public int deletePerson(Long id) {
+    public long deletePerson(Long id) {
         int status = 500;
         try (Connection connection = ConnectionUtils.getConnection()) {
             Statement stmt = connection.createStatement();
