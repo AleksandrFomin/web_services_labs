@@ -30,7 +30,7 @@
 		</node>
 	</nodes>
 	<clerks registerOnStartup="false" >
-		<clerk name="maxart" node="default" publisher="uddiadmin" password="da_password1" isPasswordEncrypted="false"
+		<clerk name="lab7" node="default" publisher="uddiadmin" password="da_password1" isPasswordEncrypted="false"
 			   cryptoProvider="org.apache.juddi.v3.client.cryptor.AES128Cryptor">
 		</clerk>
 	</clerks>

@@ -1,4 +1,4 @@
-package com.maxart;
+package lab7;
 
 public class ServiceInformation {
 

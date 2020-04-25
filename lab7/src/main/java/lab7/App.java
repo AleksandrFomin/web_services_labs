@@ -1,4 +1,4 @@
-package com.maxart;
+package lab7;
 
 
 import org.apache.commons.configuration.ConfigurationException;
